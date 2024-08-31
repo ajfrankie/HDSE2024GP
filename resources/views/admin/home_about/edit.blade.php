@@ -1,0 +1,192 @@
+@extends('admin.admin_master')
+
+@section('admin')
+
+<!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+
+              <!-- Basic Layout -->
+              <div class="row">
+                <div class="col-xl">
+                  <div class="col-xl">
+                    <div class="card mb-12">
+                      <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Create Home About</h5>
+                        <small class="text-muted float-end">Merged input group</small>
+                      </div>
+                      <div class="card-body">
+                      <form action="{{url('home/about/update/'.$home_abouts->id)}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="old_image_1" value="{{$home_abouts->imageone}}">
+                        <input type="hidden" name="old_image_2" value="{{$home_abouts->imagetwo}}">
+                        <div class="mb-3">
+                            <label class="form-label" for="basic-icon-default-fullname">Home About Head</label>
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class='bx bx-heading'></i></span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="head"
+                                name="head"
+                                value="{{ $home_abouts-> head}}"
+                              />
+                            </div>
+                          </div>
+
+
+
+
+                          <div class="mb-3">
+                            <label class="form-label" for="basic-icon-default-fullname">Home About Tittle</label>
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class='bx bx-heading'></i></span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="tittle"
+                                name="tittle"
+                                value="{{ $home_abouts-> tittle}}"
+                              />
+                            </div>
+                          </div>
+
+
+
+                          <div class="mb-3">
+                            <label class="form-label" for="basic-icon-default-fullname">Home About Short Discription</label>
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-fullname2" class="input-group-text"
+                                ><i class='bx bx-heading'></i></span>
+                              <textarea
+                                type="text"
+                                class="form-control"
+                                id="short_dis"
+                                name="short_dis"
+                              >{{ $home_abouts->short_dis}}</textarea>
+                            </div>
+                          </div>
+
+
+                          <!-- <div class="mb-2">
+                            <label class="form-label" for="basic-icon-default-message">Slider Discription</label>
+                            <div class="input-group input-group-merge">
+                              <span id="basic-icon-default-message2" class="input-group-text"
+                                ><i class='bx bx-paragraph' ></i></span>
+                              <textarea
+                                id="discription"
+                                name="discription"
+                                class="form-control"
+                                placeholder="Hi, Do you have a moment to talk Joe?"
+                              ></textarea>
+                            </div>
+                          </div> -->
+                          <div class="mb-3">
+                        <label for="formFile" class="form-label"><i class='bx bx-image-add' ></i>>Home About Image One</label>
+                        <input class="form-control" type="file" id="imageone" name="imageone" value="{{ $home_abouts-> imageone}}"/>
+                        @error('imageone')
+                                <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        
+                        <div class="divider divider-success">
+                            <div class="divider-text">Success</div>
+                          </div>
+
+
+                        <div class="form-group">
+                            <img src="{{asset($home_abouts-> imageone)}}" style="width: 400px; height: 700px;">
+                        </div>
+                      </div>
+
+                      <div class="divider divider-success">
+                            <div class="divider-text">Success</div>
+                          </div>
+
+
+                      <div class="mb-3">
+                        <label for="formFile" class="form-label"><i class='bx bx-image-add' ></i>>Home About Image Two</label>
+                        <input class="form-control" type="file" id="imagetwo" name="imagetwo" value="{{ $home_abouts-> imageone}}"/>
+                        @error('imagetwo')
+                                <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                        
+                        <div class="divider divider-success">
+                            <div class="divider-text">Success</div>
+                          </div>
+                          
+                        <div class="form-group">
+                            <img src="{{asset($home_abouts-> imagetwo)}}" style="width: 400px; height: 700px;">
+                        </div>
+                      </div>
+
+
+
+
+                          <button type="submit" class="btn btn-primary"><i class='bx bx-layer-plus'></i> Update Home About</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card mb-4">
+                    <!-- <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Basic Layout</h5>
+                      <small class="text-muted float-end">Default label</small>
+                    </div>
+                    <div class="card-body">
+                      <form>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-fullname">Full Name</label>
+                          <input type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe" />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-company">Company</label>
+                          <input type="text" class="form-control" id="basic-default-company" placeholder="ACME Inc." />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-email">Email</label>
+                          <div class="input-group input-group-merge">
+                            <input
+                              type="text"
+                              id="basic-default-email"
+                              class="form-control"
+                              placeholder="john.doe"
+                              aria-label="john.doe"
+                              aria-describedby="basic-default-email2"
+                            />
+                            <span class="input-group-text" id="basic-default-email2">@example.com</span>
+                          </div>
+                          <div class="form-text">You can use letters, numbers & periods</div>
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-phone">Phone No</label>
+                          <input
+                            type="text"
+                            id="basic-default-phone"
+                            class="form-control phone-mask"
+                            placeholder="658 799 8941"
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label class="form-label" for="basic-default-message">Message</label>
+                          <textarea
+                            id="basic-default-message"
+                            class="form-control"
+                            placeholder="Hi, Do you have a moment to talk Joe?"
+                          ></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                      </form>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+
+
+
+
+@endsection
