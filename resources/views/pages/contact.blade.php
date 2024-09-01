@@ -115,9 +115,10 @@ $contact_icons = DB::table('contact_icons')->get()
 
       </div>
 
-      <!--  <div class="col-md-6 d-flex">
-          	<div id="map" class="bg-white"></div> 
-          </div> -->
+       <div class="col-md-6 d-flex">
+       <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
+src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJz-Sg86ej-zoR75ic57T9IyA&key=AIzaSyAOVYRIgupAurZup5y1PRh8Ismb1A3lLao"></iframe>
+          </div>
     </div>
   </div>
 </section>
